@@ -21,29 +21,49 @@ class MapConfig:
     top_left: Optional[Tuple[int, int]] = None
     bottom_right: Optional[Tuple[int, int]] = None
     map_size_km: float = 65.0  # Default War Thunder map size in km
-    
+    grid_size_km: float = 2.0  # Size of one grid square in km
+    grid_pixel_size: Optional[float] = None  # Measured pixel size of one grid square
+
     @property
     def is_configured(self) -> bool:
         return self.top_left is not None and self.bottom_right is not None
-    
+
+    @property
+    def is_grid_measured(self) -> bool:
+        return self.grid_pixel_size is not None
+
     @property
     def width(self) -> int:
         if not self.is_configured:
             return 0
         return self.bottom_right[0] - self.top_left[0]
-    
+
     @property
     def height(self) -> int:
         if not self.is_configured:
             return 0
         return self.bottom_right[1] - self.top_left[1]
-    
+
     def pixels_to_km(self, pixel_distance: float) -> float:
         """Convert pixel distance to kilometers"""
         if not self.is_configured:
             return 0
         avg_dimension = (self.width + self.height) / 2
         return (pixel_distance / avg_dimension) * self.map_size_km
+
+    def auto_calculate_map_size(self) -> Optional[float]:
+        """Auto-calculate map size based on grid measurements"""
+        if not self.is_configured or not self.is_grid_measured:
+            return None
+
+        # Calculate average map dimension in pixels
+        avg_dimension = (self.width + self.height) / 2
+
+        # Calculate number of grid squares that fit in the map
+        num_grids = avg_dimension / self.grid_pixel_size
+
+        # Calculate total map size
+        return num_grids * self.grid_size_km
 
 
 class RangefinderOverlay:
@@ -65,7 +85,7 @@ class RangefinderOverlay:
         self.setup_hotkeys()
         
         # Position window in top-right corner
-        self.root.geometry('320x280+{}+50'.format(self.root.winfo_screenwidth() - 370))
+        self.root.geometry('320x330+{}+50'.format(self.root.winfo_screenwidth() - 370))
         
     def setup_ui(self):
         """Create the UI elements"""
@@ -101,7 +121,8 @@ class RangefinderOverlay:
         controls_frame = ttk.LabelFrame(main_frame, text="Controls", padding="10")
         controls_frame.grid(row=3, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=5)
         
-        controls_text = """F9  - Setup Map Corners
+        controls_text = """F6  - Measure Grid Square
+F9  - Setup Map Corners
 F10 - Manual Measure (2 clicks)
 F11 - Auto Detect Yellow Mark
 ESC - Cancel Operation
@@ -113,24 +134,41 @@ TIP: Hold SHIFT+ALT in-game to
                                   font=('Consolas', 8), justify=tk.LEFT)
         controls_label.pack(anchor=tk.W)
         
+        # Grid size config
+        grid_frame = ttk.Frame(main_frame)
+        grid_frame.grid(row=4, column=0, columnspan=2, pady=5)
+
+        ttk.Label(grid_frame, text="Grid Size (km):",
+                 font=('Segoe UI', 9)).grid(row=0, column=0, padx=5)
+
+        self.grid_size_var = tk.StringVar(value="2.0")
+        grid_size_entry = ttk.Entry(grid_frame, textvariable=self.grid_size_var,
+                                    width=8, font=('Consolas', 9))
+        grid_size_entry.grid(row=0, column=1, padx=5)
+
+        grid_update_btn = ttk.Button(grid_frame, text="Update",
+                                     command=self.update_grid_size, width=8)
+        grid_update_btn.grid(row=0, column=2, padx=5)
+
         # Map size config
         config_frame = ttk.Frame(main_frame)
-        config_frame.grid(row=4, column=0, columnspan=2, pady=10)
-        
-        ttk.Label(config_frame, text="Map Size (km):", 
+        config_frame.grid(row=5, column=0, columnspan=2, pady=5)
+
+        ttk.Label(config_frame, text="Map Size (km):",
                  font=('Segoe UI', 9)).grid(row=0, column=0, padx=5)
-        
+
         self.map_size_var = tk.StringVar(value="65.0")
         map_size_entry = ttk.Entry(config_frame, textvariable=self.map_size_var,
                                    width=8, font=('Consolas', 9))
         map_size_entry.grid(row=0, column=1, padx=5)
-        
+
         update_btn = ttk.Button(config_frame, text="Update",
                                command=self.update_map_size, width=8)
         update_btn.grid(row=0, column=2, padx=5)
         
     def setup_hotkeys(self):
         """Setup global hotkeys"""
+        keyboard.add_hotkey('f6', self.measure_grid)
         keyboard.add_hotkey('f9', self.setup_map_corners)
         keyboard.add_hotkey('f10', self.manual_measure)
         keyboard.add_hotkey('f11', self.auto_detect_marker)
@@ -152,31 +190,85 @@ TIP: Hold SHIFT+ALT in-game to
                 self.update_status("Error: Map size must be positive")
         except ValueError:
             self.update_status("Error: Invalid map size value")
+
+    def update_grid_size(self):
+        """Update the grid size configuration"""
+        try:
+            new_size = float(self.grid_size_var.get())
+            if new_size > 0:
+                self.config.grid_size_km = new_size
+                self.update_status(f"Grid size updated to {new_size} km")
+            else:
+                self.update_status("Error: Grid size must be positive")
+        except ValueError:
+            self.update_status("Error: Invalid grid size value")
+
+    def measure_grid(self):
+        """Measure a single grid square to calibrate map size"""
+        if self.is_measuring:
+            return
+
+        self.is_measuring = True
+        self.measuring_points = []
+        self.update_status("Press SHIFT+ALT, click two adjacent grid corners...")
+
+        def on_click(x, y, button, pressed):
+            if not pressed:
+                return
+
+            self.measuring_points.append((x, y))
+
+            if len(self.measuring_points) == 1:
+                self.update_status(f"✓ First corner set!\nPress SHIFT+ALT, click second corner...")
+            elif len(self.measuring_points) == 2:
+                # Calculate pixel distance between grid corners
+                p1, p2 = self.measuring_points
+                pixel_dist = np.sqrt((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2)
+                self.config.grid_pixel_size = pixel_dist
+                self.is_measuring = False
+                self.update_status(f"✓ Grid measured: {pixel_dist:.1f} pixels = {self.config.grid_size_km} km")
+                return False  # Stop listener
+
+        from pynput import mouse
+        listener = mouse.Listener(on_click=on_click)
+        listener.start()
     
     def setup_map_corners(self):
         """Setup map corner coordinates"""
         if self.is_measuring:
             return
-            
+
         self.is_measuring = True
         self.measuring_points = []
         self.update_status("Press SHIFT+ALT, then click TOP-LEFT corner...")
-        
+
         def on_click(x, y, button, pressed):
             if not pressed:
                 return
-            
+
             self.measuring_points.append((x, y))
-            
+
             if len(self.measuring_points) == 1:
                 self.update_status(f"✓ Top-left set!\nPress SHIFT+ALT, click BOTTOM-RIGHT...")
             elif len(self.measuring_points) == 2:
                 self.config.top_left = self.measuring_points[0]
                 self.config.bottom_right = self.measuring_points[1]
                 self.is_measuring = False
-                self.update_status(f"✓ Map configured!\nSize: {self.config.width}x{self.config.height}px")
+
+                # Auto-calculate map size if grid was measured
+                if self.config.is_grid_measured:
+                    auto_size = self.config.auto_calculate_map_size()
+                    if auto_size:
+                        self.config.map_size_km = auto_size
+                        self.map_size_var.set(f"{auto_size:.1f}")
+                        self.update_status(f"✓ Map configured! Auto-calculated size: {auto_size:.1f} km\nDimensions: {self.config.width}x{self.config.height}px")
+                    else:
+                        self.update_status(f"✓ Map configured!\nSize: {self.config.width}x{self.config.height}px")
+                else:
+                    self.update_status(f"✓ Map configured!\nSize: {self.config.width}x{self.config.height}px\nTIP: Use F6 first for auto-calculation")
+
                 return False  # Stop listener
-        
+
         from pynput import mouse
         listener = mouse.Listener(on_click=on_click)
         listener.start()
