@@ -1,0 +1,311 @@
+# War Thunder Rangefinder - Visual Setup Guide
+
+## 📐 MAP CORNER SETUP (F9)
+
+```
+┌─────────────────────────────────────────────────────┐
+│  War Thunder In-Game Map                            │
+│                                                      │
+│  ┌──────────────────────────────────────┐          │
+│  │ ← Click here FIRST (Top-Left)        │          │
+│  │                                       │          │
+│  │         YOUR MAP AREA                 │          │
+│  │                                       │          │
+│  │                                       │          │
+│  │            🎯 You are here            │          │
+│  │                                       │          │
+│  │                                       │          │
+│  │                                       │          │
+│  │              Click here SECOND →      │          │
+│  └──────────────────────────────────────┘          │
+│                                    (Bottom-Right)   │
+└─────────────────────────────────────────────────────┘
+
+Steps:
+1. Press M to open map
+2. Press F9 
+3. Click TOP-LEFT corner of map area
+4. Click BOTTOM-RIGHT corner of map area
+5. ✓ Done! Map configured
+```
+
+## 📏 MANUAL MEASUREMENT (F10)
+
+```
+┌──────────────────────────────────────┐
+│           War Thunder Map             │
+│                                       │
+│         Click 1: Your Position        │
+│              🔵                       │
+│                                       │
+│                                       │
+│            Click 2: Target            │
+│                        🔴             │
+│                                       │
+│                                       │
+└──────────────────────────────────────┘
+
+Result in Overlay:
+┌─────────────────────┐
+│  ⚡ WT Rangefinder  │
+├─────────────────────┤
+│   Distance          │
+│   1.2 km            │ ← Shows here!
+└─────────────────────┘
+
+Steps:
+1. Press F10
+2. Click your position (blue dot)
+3. Click enemy position (red dot)
+4. Distance appears!
+```
+
+## 🎯 AUTO YELLOW MARKER (F11)
+
+```
+┌──────────────────────────────────────┐
+│           War Thunder Map             │
+│                                       │
+│              🔵 You                   │
+│                                       │
+│                                       │
+│                                       │
+│                    🟡 Squad Marker    │
+│                                       │
+│                                       │
+└──────────────────────────────────────┘
+
+Auto-detects yellow marker and 
+calculates distance automatically!
+
+Steps:
+1. Place yellow squad marker (in game)
+2. Press F11
+3. Distance calculated instantly!
+```
+
+## 🖥️ OVERLAY POSITION
+
+```
+┌─────────────────────────────────────────────────────┐
+│  War Thunder Window (Windowed Mode)                 │
+│                                              ┌──────┤
+│                                              │ ⚡ WT │
+│                                              │ Range│
+│  ┌──────────────┐                           │ ──── │
+│  │ Game View    │                           │ 1.2km│
+│  │              │                           └──────┤
+│  │    🎮        │                                   │
+│  │              │  ← Overlay stays on top           │
+│  │              │     You can still interact        │
+│  └──────────────┘     with the game!               │
+│                                                      │
+│  [Map] [Settings] [Controls]                        │
+└─────────────────────────────────────────────────────┘
+
+The overlay stays visible and on top!
+Move it anywhere you want by dragging.
+```
+
+## 🔄 WORKFLOW DIAGRAM
+
+```
+Start War Thunder (Windowed Mode)
+         │
+         ↓
+Run rangefinder (.bat file)
+         │
+         ↓
+Setup Map Corners (F9) ← Do once per session
+         │
+         ↓
+   ┌─────┴─────┐
+   ↓           ↓
+Manual      Auto-Detect
+ (F10)        (F11)
+   ↓           ↓
+Click 2     Place marker
+ Points      Press F11
+   ↓           ↓
+   └─────┬─────┘
+         ↓
+   Distance Shown!
+         │
+         ↓
+    Keep Playing
+```
+
+## 🎮 GAME SETTINGS
+
+```
+War Thunder Settings Menu
+├── Graphics
+│   ├── Screen Mode: Windowed ← MUST BE THIS!
+│   ├── Resolution: Your choice
+│   └── V-Sync: Your choice
+│
+├── Controls
+│   └── (Default is fine)
+│
+└── Map Settings
+    ├── Map Size: Large (recommended)
+    └── Map Zoom: Adjustable in-game
+```
+
+## 💻 INTERFACE LAYOUT
+
+```
+┌────────────────────────────────────┐
+│     ⚡ WT Rangefinder              │
+│     Normal Mode                    │
+├────────────────────────────────────┤
+│  ┌──────────────────────────────┐ │
+│  │      Distance                │ │
+│  │        1.2 km                │ │
+│  └──────────────────────────────┘ │
+│                                    │
+│  Status: Ready                     │
+│                                    │
+│  ┌─ Hotkeys ──────────────────┐  │
+│  │ F9  - Setup Map            │  │
+│  │ F10 - Manual Measure       │  │
+│  │ F11 - Detect Marker        │  │
+│  │ ESC - Cancel               │  │
+│  └────────────────────────────┘  │
+│                                    │
+│  Map Size: [65.0] km  [Set]       │
+└────────────────────────────────────┘
+```
+
+## ⚡ PRO EDITION EXTRAS
+
+```
+Pro Edition adds:
+
+F12 → Click-Through Mode
+┌────────────────────┐
+│ ⚡ WT Rangefinder  │ ← Becomes semi-transparent
+│ 🖱️ Click-Through  │    and clicks pass through!
+│   1.2 km           │
+└────────────────────┘
+
+F8 → Auto-Scan Mode
+┌────────────────────┐
+│ ⚡ WT Rangefinder  │
+│ 🔄 Auto-Scan       │ ← Scans every 3 seconds
+│   1.2 km           │    automatically!
+└────────────────────┘
+```
+
+## 📋 FOLDER STRUCTURE
+
+```
+WT_Rangefinder/
+│
+├── 📄 START_HERE.txt          ← Read this first!
+├── 📘 README.md               ← Full documentation
+├── 📗 QUICKSTART.md           ← Quick reference
+├── 📙 PACKAGE_INFO.md         ← Package details
+├── 📊 VISUAL_GUIDE.txt        ← This file
+│
+├── 🐍 wt_rangefinder.py       ← Standard version
+├── ⚡ wt_rangefinder_pro.py   ← Pro version
+│
+├── ⚙️ setup.bat               ← Run first!
+├── ▶️ run_rangefinder.bat     ← Run standard
+├── ▶️ run_rangefinder_pro.bat ← Run pro
+├── 🔨 build_exe.bat           ← Build standalone
+│
+└── 📦 requirements.txt        ← Dependencies
+```
+
+## 🎯 MEASUREMENT EXAMPLES
+
+```
+Close Range (< 500m):
+┌──────────┐
+│  425 m   │  ← Shown in meters
+└──────────┘
+
+Medium Range (500m - 1km):
+┌──────────┐
+│  0.85 km │  ← Shown in kilometers
+└──────────┘
+
+Long Range (> 1km):
+┌──────────┐
+│  2.34 km │  ← Two decimal places
+└──────────┘
+```
+
+## 🔧 TROUBLESHOOTING VISUAL
+
+```
+Problem: Overlay disappears
+┌─────────────────┐
+│   WT Fullscreen │  ❌ Wrong!
+└─────────────────┘
+
+┌─────────────────┐
+│   WT Windowed   │  ✅ Correct!
+│  ┌───────────┐  │
+│  │    ⚡     │  │  ← Overlay visible
+│  └───────────┘  │
+└─────────────────┘
+
+Problem: Can't click map
+    ❌ Clicking outside map area
+┌──────────────────┐
+│  🖱️              │  ← Click inside!
+│  ┌────────────┐  │
+│  │    MAP     │  │
+│  │      🖱️   │  │  ✅ Correct!
+│  └────────────┘  │
+└──────────────────┘
+
+Problem: Wrong distance
+    Map size setting wrong!
+    
+    65km map → Set to 65.0 ✅
+    32km map → Set to 32.0 ✅
+    130km map → Set to 130.0 ✅
+```
+
+## 🎓 LEARNING PATH
+
+```
+Day 1: Basic Setup
+├── Install Python
+├── Run setup.bat
+├── Configure War Thunder (Windowed)
+└── ✓ Ready!
+
+Day 2: Learn Manual Mode
+├── Open map (M)
+├── Setup corners (F9)
+├── Practice F10 measurements
+└── ✓ Comfortable with basics
+
+Day 3: Try Auto Mode
+├── Place squad markers
+├── Use F11 detection
+├── Adjust map size if needed
+└── ✓ Mastered both modes
+
+Day 4+: Advanced (Pro)
+├── Try click-through (F12)
+├── Enable auto-scan (F8)
+├── Optimize placement
+└── ✓ Expert user!
+```
+
+---
+
+**Visual learner?** This guide shows you exactly what to expect!
+**Questions?** Check the other documentation files.
+**Ready?** Run setup.bat and start playing!
+
+🎯 Happy Ranging!
+```
+
+This visual guide helps you understand the setup and usage at a glance!

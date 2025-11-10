@@ -1,0 +1,213 @@
+═══════════════════════════════════════════════════════════════
+   🖱️ WAR THUNDER CURSOR CONTROL GUIDE
+   How to Show Your Cursor for Clicking the Map
+═══════════════════════════════════════════════════════════════
+
+⚠️ IMPORTANT: War Thunder hides your cursor by default!
+
+This is NORMAL War Thunder behavior, not a bug with the rangefinder.
+
+═══════════════════════════════════════════════════════════════
+
+🎮 THE SOLUTION: SHIFT + ALT
+═══════════════════════════════════════════════════════════════
+
+War Thunder has a built-in hotkey to show your cursor:
+
+   1. Hold SHIFT + ALT together
+   2. Your cursor appears!
+   3. Click where you need to
+   4. Release SHIFT + ALT
+   5. Cursor hides again (normal)
+
+═══════════════════════════════════════════════════════════════
+
+📋 STEP-BY-STEP: SETUP MAP CORNERS (F9)
+═══════════════════════════════════════════════════════════════
+
+1. Open your map in War Thunder (M key)
+
+2. Press F9 in the rangefinder overlay
+
+3. Hold SHIFT + ALT
+   └─→ Your cursor appears on screen
+
+4. While holding SHIFT + ALT, click TOP-LEFT corner of map
+   └─→ Rangefinder shows "✓ Top-left set!"
+
+5. Release SHIFT + ALT (cursor hides - that's OK!)
+
+6. Hold SHIFT + ALT again
+   └─→ Cursor appears again
+
+7. While holding SHIFT + ALT, click BOTTOM-RIGHT corner
+   └─→ Rangefinder shows "✓ Map configured!"
+
+8. Done! You only do this once per game session.
+
+═══════════════════════════════════════════════════════════════
+
+📋 STEP-BY-STEP: MANUAL MEASUREMENT (F10)
+═══════════════════════════════════════════════════════════════
+
+1. Press F10 in the rangefinder overlay
+
+2. Hold SHIFT + ALT
+   └─→ Cursor appears
+
+3. Click your starting point on the map
+   └─→ Rangefinder shows "✓ Point 1 set!"
+
+4. Release SHIFT + ALT
+
+5. Hold SHIFT + ALT again
+   └─→ Cursor appears
+
+6. Click your target point on the map
+   └─→ Distance calculated and shown!
+
+7. Done! Repeat F10 whenever you need a new measurement.
+
+═══════════════════════════════════════════════════════════════
+
+💡 PRO TIPS
+═══════════════════════════════════════════════════════════════
+
+✅ Keep SHIFT + ALT held while clicking for smoother experience
+
+✅ You can release between clicks - just hold again for next click
+
+✅ This works with ALL clickable UI elements in War Thunder
+
+✅ The rangefinder automatically waits for your clicks
+
+✅ No time limit - take your time to click accurately
+
+═══════════════════════════════════════════════════════════════
+
+🎯 VISUAL GUIDE
+═══════════════════════════════════════════════════════════════
+
+BEFORE (Cursor Hidden):
+┌────────────────────────────┐
+│  War Thunder Window        │
+│                            │
+│   ┌──────────────┐        │
+│   │     MAP      │        │  ← No cursor visible
+│   │              │        │
+│   │              │        │
+│   └──────────────┘        │
+└────────────────────────────┘
+
+AFTER (Holding SHIFT + ALT):
+┌────────────────────────────┐
+│  War Thunder Window        │
+│                            │
+│   ┌──────────────┐        │
+│   │ 🖱️  MAP      │        │  ← Cursor appears!
+│   │              │        │
+│   │              │        │
+│   └──────────────┘        │
+└────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+❓ COMMON QUESTIONS
+═══════════════════════════════════════════════════════════════
+
+Q: Why does War Thunder hide the cursor?
+A: It's for gameplay immersion. War Thunder automatically hides
+   it so you're not distracted during combat.
+
+Q: Is SHIFT+ALT always the key?
+A: Yes, this is War Thunder's default. If you've changed your
+   key bindings, use whatever you set for "Show cursor" or
+   "UI interaction mode".
+
+Q: Do I need to hold it the entire time?
+A: Only while clicking. You can release between clicks.
+
+Q: Can I change this behavior?
+A: Yes, in War Thunder settings, but SHIFT+ALT is standard
+   and easiest to remember.
+
+Q: Does this work in all game modes?
+A: Yes! Works in all modes where you can see the map.
+
+═══════════════════════════════════════════════════════════════
+
+🔧 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+Problem: SHIFT+ALT doesn't show cursor
+Solution:
+  • Make sure War Thunder window is focused (click on it)
+  • Check your War Thunder key bindings
+  • Try ALT+SHIFT (reverse order) in case you remapped it
+  • Restart War Thunder if needed
+
+Problem: Cursor shows but rangefinder doesn't register click
+Solution:
+  • Make sure you're clicking INSIDE the map boundaries
+  • Check that F9 or F10 was pressed in the rangefinder first
+  • Look for status message in rangefinder overlay
+  • Click slowly and deliberately
+
+Problem: Cursor disappears immediately after clicking
+Solution:
+  • This is normal! Just hold SHIFT+ALT again for next click
+  • War Thunder hides cursor by design after each action
+  • Not a bug - working as intended
+
+═══════════════════════════════════════════════════════════════
+
+📝 QUICK REFERENCE CARD
+═══════════════════════════════════════════════════════════════
+
+┌──────────────────────────────────────────────────────────┐
+│                    CURSOR CONTROL                         │
+├──────────────────────────────────────────────────────────┤
+│                                                           │
+│  Show Cursor:    SHIFT + ALT (hold together)             │
+│                                                           │
+│  Hide Cursor:    Release SHIFT + ALT                     │
+│                                                           │
+│  For Clicking:   Hold SHIFT + ALT while clicking         │
+│                                                           │
+│  Between Clicks: You can release and press again         │
+│                                                           │
+├──────────────────────────────────────────────────────────┤
+│                  RANGEFINDER WORKFLOW                     │
+├──────────────────────────────────────────────────────────┤
+│                                                           │
+│  1. Press F9 or F10 in rangefinder                       │
+│  2. Hold SHIFT + ALT                                     │
+│  3. Click on map                                          │
+│  4. Release (or keep holding for next click)             │
+│  5. Repeat for second point if needed                    │
+│                                                           │
+└──────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+
+🎮 REMEMBER
+═══════════════════════════════════════════════════════════════
+
+This is NOT a rangefinder issue!
+This is normal War Thunder behavior!
+SHIFT + ALT is your friend!
+
+Every War Thunder player needs to use this for UI interaction.
+You'll use it for:
+  • Clicking the map
+  • Placing markers
+  • Using rangefinder
+  • Accessing any UI during gameplay
+
+Once you get used to it, it becomes second nature! 🎯
+
+═══════════════════════════════════════════════════════════════
+
+Still having issues? Check START_HERE.txt for more help!
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,261 @@
+═══════════════════════════════════════════════════════════════
+   WAR THUNDER RANGEFINDER - STREAMLINED EDITION
+   Installation & Usage Instructions
+═══════════════════════════════════════════════════════════════
+
+📦 PACKAGE CONTENTS
+───────────────────────────────────────────────────────────────
+
+TWO VERSIONS INCLUDED:
+
+  📊 STANDARD EDITION (wt_rangefinder.py)
+     • Simple and reliable
+     • Manual + Auto measurement
+     • Best for most users
+     • Run with: run_rangefinder.bat
+
+  ⚡ PRO EDITION (wt_rangefinder_pro.py)  
+     • All Standard features
+     • Click-through overlay mode (F12)
+     • Auto-scan markers (F8)
+     • Advanced controls
+     • Run with: run_rangefinder_pro.bat
+
+───────────────────────────────────────────────────────────────
+
+🚀 INSTALLATION (3 STEPS)
+───────────────────────────────────────────────────────────────
+
+STEP 1: Install Python (if not installed)
+  • Download: https://www.python.org/downloads/
+  • Version: Python 3.8 or higher
+  • ⚠️ IMPORTANT: Check "Add Python to PATH" during install!
+  • Restart computer after installation
+
+STEP 2: Run Setup
+  • Double-click: setup.bat
+  • Wait for packages to install (1-2 minutes)
+  • You'll see "Setup complete!" when done
+
+STEP 3: Configure War Thunder
+  • Launch War Thunder
+  • Settings → Graphics → Screen Mode: "Windowed"
+  • Apply and restart game
+
+DONE! You're ready to use the rangefinder!
+
+───────────────────────────────────────────────────────────────
+
+🎮 USAGE GUIDE
+───────────────────────────────────────────────────────────────
+
+▸ FIRST TIME IN-GAME SETUP (F9)
+
+  1. Start rangefinder:
+     • Standard: run_rangefinder.bat
+     • Pro: run_rangefinder_pro.bat
+
+  2. Open your map in War Thunder (press M)
+
+  3. Press F9 to setup map corners:
+     • Hold SHIFT+ALT (shows cursor in War Thunder)
+     • Click TOP-LEFT corner of map
+     • Hold SHIFT+ALT again
+     • Click BOTTOM-RIGHT corner of map
+     • ✓ Setup complete!
+
+  ⚠️ IMPORTANT: War Thunder hides your cursor by default!
+     Hold SHIFT+ALT to show it for clicking.
+
+  This only needs to be done ONCE per game session!
+
+▸ MEASURING DISTANCES
+
+  Method A - MANUAL (Most Accurate)
+    1. Press F10
+    2. Hold SHIFT+ALT to show cursor
+    3. Click your position on map
+    4. Hold SHIFT+ALT again
+    5. Click target position on map
+    6. → Distance displays in overlay!
+
+  Method B - AUTO YELLOW MARKER
+    1. Place yellow squad marker in game
+    2. Press F11
+    3. → Distance calculated automatically!
+
+  Method C - AUTO-SCAN (Pro Only)
+    1. Place yellow squad marker
+    2. Press F8 to enable auto-scan
+    3. → Updates every 3 seconds automatically!
+
+───────────────────────────────────────────────────────────────
+
+⌨️ HOTKEY REFERENCE
+───────────────────────────────────────────────────────────────
+
+STANDARD EDITION:
+  F9  = Setup map corners (one-time)
+  F10 = Manual 2-point measurement
+  F11 = Detect yellow marker
+  ESC = Cancel operation
+
+PRO EDITION (all above plus):
+  F12 = Toggle click-through mode
+  F8  = Toggle auto-scan mode (3s)
+
+───────────────────────────────────────────────────────────────
+
+💡 TIPS FOR SUCCESS
+───────────────────────────────────────────────────────────────
+
+✓ Use WINDOWED mode, not fullscreen
+✓ Larger map zoom = better accuracy
+✓ Manual mode (F10) is most reliable
+✓ Reconfigure corners (F9) if you change resolution
+✓ Update map size if playing different map types
+✓ Position overlay where it doesn't block important UI
+
+───────────────────────────────────────────────────────────────
+
+🔧 TROUBLESHOOTING
+───────────────────────────────────────────────────────────────
+
+Problem: Can't see cursor to click map
+Solution:
+  • War Thunder hides cursor by default
+  • Hold SHIFT+ALT to show cursor (game feature)
+  • This is normal War Thunder behavior
+
+Problem: "Python is not recognized"
+Solution: 
+  • Install Python from python.org
+  • Make sure "Add Python to PATH" was checked
+  • Restart computer
+
+Problem: "Module not found" errors
+Solution:
+  • Run setup.bat again
+  • Or manually: pip install -r requirements.txt
+
+Problem: Overlay disappears behind game
+Solution:
+  • War Thunder MUST be in Windowed mode
+  • Not fullscreen, not borderless windowed
+  • Try running rangefinder as administrator
+
+Problem: Auto-detection doesn't find marker
+Solution:
+  • Ensure marker is bright yellow and visible
+  • Reconfigure map corners (F9)
+  • Use manual mode (F10) instead
+
+Problem: Clicks not registering in manual mode
+Solution:
+  • Make sure clicks are INSIDE map boundaries
+  • Verify map corners are set correctly (F9)
+  • Try larger map zoom for easier clicking
+
+───────────────────────────────────────────────────────────────
+
+📊 STANDARD vs PRO - WHICH TO USE?
+───────────────────────────────────────────────────────────────
+
+Choose STANDARD if you want:
+  • Simplicity and ease of use
+  • Manual control
+  • Lowest resource usage
+  • Just the essentials
+
+Choose PRO if you want:
+  • Click-through overlay (F12)
+  • Auto-scan mode (F8)
+  • Maximum flexibility
+  • Advanced features
+
+Not sure? → Start with STANDARD!
+
+───────────────────────────────────────────────────────────────
+
+⚙️ ADVANCED: BUILD STANDALONE .EXE
+───────────────────────────────────────────────────────────────
+
+Want to share with friends without Python?
+
+1. Double-click: build_exe.bat
+2. Wait for build to complete
+3. Find executable: dist/WT_Rangefinder.exe
+4. Share the .exe - no Python needed!
+
+───────────────────────────────────────────────────────────────
+
+📋 COMMON MAP SIZES
+───────────────────────────────────────────────────────────────
+
+Default: 65 km (most realistic battles)
+  • Enter in overlay's "Map Size" field
+  • Click "Update" to apply
+
+Other sizes:
+  • 32 km - Some smaller maps
+  • 130 km - Large EC/Enduring Confrontation maps
+
+To change:
+  1. Check actual map size in game
+  2. Update in overlay interface
+  3. Click "Set" or "Update"
+
+───────────────────────────────────────────────────────────────
+
+⚖️ LEGAL & FAIR PLAY
+───────────────────────────────────────────────────────────────
+
+This tool:
+  ✓ Does NOT modify game files
+  ✓ Does NOT inject code
+  ✓ Does NOT provide unfair advantages
+  ✓ Only reads your screen (overlay)
+
+It's similar to:
+  • Discord overlay
+  • FPS counters
+  • Hardware monitors
+
+Use responsibly and check your server's rules.
+
+───────────────────────────────────────────────────────────────
+
+📚 DOCUMENTATION FILES
+───────────────────────────────────────────────────────────────
+
+  README.md         - Complete detailed documentation
+  QUICKSTART.md     - Quick reference guide
+  PACKAGE_INFO.md   - Package overview and comparison
+  START_HERE.txt    - This file
+
+Read these for more information!
+
+───────────────────────────────────────────────────────────────
+
+🎯 QUICK START CHECKLIST
+───────────────────────────────────────────────────────────────
+
+Installation:
+  ☐ Python installed with "Add to PATH" checked
+  ☐ Ran setup.bat successfully
+  ☐ War Thunder in Windowed mode
+
+First Use:
+  ☐ Launched rangefinder (run_rangefinder.bat)
+  ☐ Opened map in game (M key)
+  ☐ Setup corners with F9
+  ☐ Tried manual measurement (F10)
+
+All done? You're ready to play!
+
+───────────────────────────────────────────────────────────────
+
+Need help? Check the other documentation files!
+Have fun and good hunting! 🎯
+
+═══════════════════════════════════════════════════════════════
